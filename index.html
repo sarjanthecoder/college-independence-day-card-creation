@@ -8,11 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Merienda:wght@700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="/favicon1.png">
-
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <link rel="icon" type="image/png" href="/favicon1.png">
 
     <style>
         :root {
@@ -30,9 +26,9 @@
         body {
             margin: 0;
             font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            background: url('lokesh.jpg') no-repeat center center fixed;
+            background: url('123.jpg') no-repeat center center fixed;
             background-size: cover;
-            color: var(--light);
+            color: var(--light); 
         }
 
         /* Scrollbar styles (optional but nice) */
@@ -50,7 +46,6 @@
             background-color: var(--saffron);
             border-radius: 10px;
         }
-
 
         /* Header */
         .app-header {
@@ -95,9 +90,8 @@
 
         /* Footer */
         .app-footer {
-            /* Changed from fixed to relative to be at the bottom of the page content */
             position: relative;
-            margin-top: 40px; /* Space above the footer */
+            margin-top: 40px;
             height: 56px;
             display: flex;
             align-items: center;
@@ -126,14 +120,14 @@
         /* Hero section */
         .hero {
             position: relative;
-            height: 100vh; /* Takes full screen height */
+            height: 100vh;
             width: 100%;
             display: grid;
             place-items: center;
             text-align: center;
             padding: 90px 16px 76px;
             box-sizing: border-box;
-            overflow: hidden; /* Hide balloons from overflowing this section */
+            overflow: hidden;
         }
 
         .hero-inner {
@@ -236,172 +230,15 @@
         .b7 { left: 12%; animation-duration: 19s; animation-delay: 1.8s; transform: scale(1.1); }
         .b8 { left: 72%; animation-duration: 15s; animation-delay: 1.2s; transform: scale(0.88); }
 
-        /* Modal overlay */
-        .modal {
-            position: fixed;
-            inset: 0;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0,0,0,0.35);
-            backdrop-filter: blur(2px);
-            -webkit-backdrop-filter: blur(2px);
-            z-index: 50;
-        }
-        .modal.show { display: flex; animation: fadeIn 220ms ease; }
-        @keyframes fadeIn {
-            from { opacity: 0; } to { opacity: 1; }
-        }
-
-        .card {
-            position: relative;
-            width: min(92vw, 420px);
-            max-height: 90vh;
-            overflow-y: auto;
-            border-radius: 24px;
-            padding: 24px 18px 18px;
-            background: var(--glassDeep);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow:
-                0 18px 40px rgba(44, 62, 80, 0.35),
-                0 0 0 4px var(--saffron),
-                0 0 0 8px rgba(19,136,8,0.24);
-            color: #242424;
-            text-align: center;
-            animation: popIn 280ms ease;
-        }
-        @keyframes popIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .close-x {
-            position: absolute;
-            right: 12px;
-            top: 8px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            color: #1f2937;
-            font-weight: 800;
-            font-size: 18px;
-            cursor: pointer;
-            background: rgba(255,255,255,0.55);
-            border: 2px solid rgba(0,0,0,0.1);
-            transition: transform .15s ease;
-        }
-        .close-x:hover { transform: rotate(6deg) scale(1.05); }
-
-        .emoji-flag {
-            font-size: 2.3rem;
-            margin-bottom: 4px;
-            display: inline-block;
-            filter: drop-shadow(0 2px 7px rgba(0,0,0,0.25));
-            animation: swing 2s infinite alternate ease-in-out;
-        }
-        @keyframes swing { 0% { transform: rotate(-7deg); } 100% { transform: rotate(7deg); } }
-
-        .form-title {
-            margin: 4px 0 10px;
-            font-family: 'Baloo 2', cursive;
-            font-weight: 800;
-            letter-spacing: 2px;
-            font-size: 1.9rem;
-            background: linear-gradient(90deg, var(--saffron), #ffffff 60%, var(--green));
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            text-shadow: 0 0 18px rgba(0,0,0,0.1);
-        }
-
-        .tricolor-divider {
-            width: 62%;
-            height: 6px;
-            margin: 10px auto 18px;
-            border-radius: 5px;
-            background: linear-gradient(90deg, var(--saffron) 0%, #ffffff 45%, var(--green) 98%);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-        }
-
-        form { width: 100%; text-align: left; }
-
-        label {
-            display: block;
-            margin: 6px 0 4px 4px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #1f2937;
-        }
-        input {
-            width: 100%;
-            padding: 12px 13px;
-            margin-bottom: 10px;
-            border-radius: 12px;
-            border: none;
-            background: rgba(255, 255, 255, 0.6);
-            color: #111827;
-            font-size: 1rem;
-            box-shadow: inset 2px 2px 7px rgba(255,255,255,0.45);
-            transition: background .2s, box-shadow .2s, outline-color .2s;
-        }
-        input::placeholder { color: #6b7280; font-style: italic; }
-        input:focus {
-            outline: 2px solid var(--brandBlue);
-            background: rgba(255,255,255,0.85);
-            box-shadow: 0 0 10px rgba(0,245,255,0.55);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 14px;
-            margin: 12px 0 2px 0;
-            border-radius: 13px;
-            border: none;
-            background: linear-gradient(90deg, var(--saffron) 0%, #fff 46%, var(--green) 97%);
-            color: #222;
-            font-weight: 800;
-            font-size: 1.06rem;
-            cursor: pointer;
-            transition: transform .16s ease, color .16s ease;
-            box-shadow: 0 0 14px rgba(0,245,255,0.25);
-        }
-        .submit-btn:hover { transform: scale(1.03); color: var(--brandBlue); }
-
-        .toggle-link {
-            margin-top: 10px;
-            color: var(--saffron);
-            font-weight: 800;
-            cursor: pointer;
-            font-size: 0.98rem;
-            letter-spacing: 0.02em;
-            text-decoration: underline;
-            text-align: center;
-        }
-        .toggle-link:hover { color: var(--green); }
-
-        .indicator {
-            margin-top: 10px;
-            font-size: 1.02rem;
-            font-weight: 700;
-            min-height: 20px;
-            color: var(--brandBlue);
-            text-shadow: 0 0 12px rgba(255,255,255,0.7);
-            word-break: break-word;
-            text-align: center;
-        }
-        
-        /* ======== NEW STYLES FOR SCROLLABLE CONTENT ======== */
+        /* New content sections */
         .content-section {
             padding: 60px 24px;
-            background: rgba(10, 25, 47, 0.8); /* A semi-transparent dark blue */
+            background: rgba(10, 25, 47, 0.8);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             text-align: center;
             max-width: 900px;
-            margin: 40px auto; /* Centered with vertical margin */
+            margin: 40px auto;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -482,20 +319,11 @@
             margin: 10px 0 0;
             color: var(--green);
         }
-        /* ======== END OF NEW STYLES ======== */
 
         /* Mobile tweaks */
         @media (max-width: 600px) {
             .app-header { height: 58px; }
             .hero { padding: 78px 12px 70px; }
-            .card {
-                width: 90vw; /* Wider card on mobile */
-                padding: 20px 14px 14px;
-                max-height: 80vh;
-            }
-            .form-title { font-size: 1.6rem; letter-spacing: 1.5px; }
-            label { font-size: 0.9rem; }
-            .submit-btn { font-size: 1rem; }
             .content-section { padding: 40px 16px; margin: 20px auto; }
         }
 
@@ -530,16 +358,13 @@
         <div class="hero-inner">
             <h1 class="hello">Hello Indian</h1>
             <div class="tagline">Let’s celebrate our freedom</div>
-            <button class="cta" id="cta-btn" aria-haspopup="dialog" aria-controls="auth-modal">
+            <a href="hello.html" class="cta">
                 Create your Independence Day card
-            </button>
+            </a>
         </div>
     </main>
-    
-    <!-- ========== NEW CONTENT SECTIONS START HERE ========== -->
 
-    <!-- ========== History Section ========== -->
-    <section class="content-section">
+        <section class="content-section">
         <h2 class="section-title">The Story of Our Freedom</h2>
         <div class="tricolor-divider-long"></div>
         <p class="section-text">
@@ -547,8 +372,7 @@
         </p>
     </section>
 
-    <!-- ========== Gallery Section ========== -->
-    <section class="content-section">
+        <section class="content-section">
         <h2 class="section-title">Moments of Pride</h2>
         <div class="tricolor-divider-long"></div>
         <div class="gallery-grid">
@@ -561,8 +385,7 @@
         </div>
     </section>
     
-    <!-- ========== Quotes Section ========== -->
-    <section class="content-section">
+        <section class="content-section">
         <h2 class="section-title">Words that Echo</h2>
         <div class="tricolor-divider-long"></div>
         <div class="quotes-container">
@@ -577,172 +400,8 @@
         </div>
     </section>
 
-    <!-- ========== NEW CONTENT SECTIONS END HERE ========== -->
-
-    <div class="modal" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="form-title">
-        <div class="card" role="document">
-            <button class="close-x" id="modal-close" aria-label="Close">×</button>
-
-            <span class="emoji-flag" aria-hidden="true">🇮🇳</span>
-            <div class="form-title" id="form-title">Login</div>
-            <div class="tricolor-divider"></div>
-
-            <form id="login-form" autocomplete="off">
-                <label for="name" id="label-name" style="display:none;">Full Name</label>
-                <input type="text" id="name" placeholder="Full Name (for registration)" style="display:none;" autocomplete="name" />
-
-                <label for="mobile" id="label-mobile">Mobile or Username</label>
-                <input type="text" id="mobile" placeholder="Mobile or Username" required autocomplete="username" />
-
-                <label for="password" id="label-password">Password</label>
-                <input type="password" id="password" placeholder="Password" required autocomplete="current-password" />
-
-                <label for="place" id="label-place" style="display:none;">Place</label>
-                <input type="text" id="place" placeholder="Place (for registration)" style="display:none;" autocomplete="address-level2" />
-
-                <button type="submit" class="submit-btn" id="submit-btn">Login</button>
-            </form>
-
-            <div class="toggle-link" id="toggle-link">Create an account</div>
-            <div class="indicator" id="indicator" aria-live="polite"></div>
-        </div>
-    </div>
-    
     <footer class="app-footer">
         Made with <span class="heart">❤</span> for India • <span class="jaihind">Jai Hind!</span>
     </footer>
-
-    <script>
-        // Initialize Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyCMCWn8o0OniygpKCqwN77zcDRZ8RTFZ0M",
-            authDomain: "independence-day-aug-15-57ad2.firebaseapp.com",
-            projectId: "independence-day-aug-15-57ad2",
-            storageBucket: "independence-day-aug-15-57ad2.appspot.com",
-            messagingSenderId: "445722804560",
-            appId: "1:445722804560:web:3e3571d865e4ead1076c55"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const db = firebase.firestore();
-
-        // Elements
-        const modal = document.getElementById('auth-modal');
-        const openModalBtn = document.getElementById('cta-btn');
-        const closeModalBtn = document.getElementById('modal-close');
-
-        const formTitle = document.getElementById('form-title');
-        const toggleLink = document.getElementById('toggle-link');
-        const submitBtn = document.getElementById('submit-btn');
-        const indicator = document.getElementById('indicator');
-        const nameInput = document.getElementById('name');
-        const labelName = document.getElementById('label-name');
-        const mobileInput = document.getElementById('mobile');
-        const passwordInput = document.getElementById('password');
-        const placeInput = document.getElementById('place');
-        const labelPlace = document.getElementById('label-place');
-        const loginForm = document.getElementById('login-form');
-
-        let isLogin = true;
-
-        function openModal() {
-            modal.classList.add('show');
-            setTimeout(() => mobileInput.focus(), 50);
-        }
-
-        function closeModal() {
-            modal.classList.remove('show');
-            indicator.textContent = '';
-            loginForm.reset();
-            if (!isLogin) toggleView();
-        }
-
-        // Toggle Login/Register UI
-        function toggleView() {
-            isLogin = !isLogin;
-            formTitle.textContent = isLogin ? 'Login' : 'Register';
-            submitBtn.textContent = isLogin ? 'Login' : 'Register';
-            toggleLink.textContent = isLogin ? 'Create an account' : 'Already have an account? Login';
-
-            const showExtra = !isLogin;
-            nameInput.style.display = showExtra ? 'block' : 'none';
-            labelName.style.display = showExtra ? 'block' : 'none';
-            placeInput.style.display = showExtra ? 'block' : 'none';
-            labelPlace.style.display = showExtra ? 'block' : 'none';
-
-            passwordInput.setAttribute('autocomplete', isLogin ? 'current-password' : 'new-password');
-        }
-
-        // Open/Close modal handlers
-        openModalBtn.addEventListener('click', openModal);
-        closeModalBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
-        });
-
-        // Toggle link
-        toggleLink.addEventListener('click', toggleView);
-
-        // Form Submit Handler
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const name = nameInput.value.trim();
-            const mobile = mobileInput.value.trim();
-            const password = passwordInput.value.trim();
-            const place = placeInput.value.trim();
-
-            if (!mobile || !password) {
-                indicator.textContent = "Mobile and password are required.";
-                indicator.style.color = "#ff9933";
-                return;
-            }
-
-            const fakeEmail = mobile + "@example.com";
-            indicator.innerHTML = "⏳ Processing...";
-
-            if (isLogin) {
-                auth.signInWithEmailAndPassword(fakeEmail, password)
-                    .then(() => {
-                        indicator.textContent = "✅ Login successful! Redirecting...";
-                        indicator.style.color = "#138808";
-                        setTimeout(() => window.location.href = "hello.html", 900);
-                    })
-                    .catch(err => {
-                        indicator.textContent = "❌ " + err.message;
-                        indicator.style.color = "#ff9933";
-                        console.error("Login Error:", err);
-                    });
-            } else {
-                if (!name || !place) {
-                    indicator.textContent = "All fields are required for registration.";
-                    indicator.style.color = "#ff9933";
-                    return;
-                }
-                auth.createUserWithEmailAndPassword(fakeEmail, password)
-                    .then(userCred => {
-                        return db.collection("users").doc(userCred.user.uid).set({
-                            name,
-                            mobile,
-                            place,
-                            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-                        });
-                    })
-                    .then(() => {
-                        indicator.textContent = "🎉 Account created! Redirecting...";
-                        indicator.style.color = "#138808";
-                        setTimeout(() => window.location.href = "hello.html", 900);
-                    })
-                    .catch(err => {
-                        indicator.textContent = "❌ " + err.message;
-                        indicator.style.color = "#ff9933";
-                        console.error("Register Error:", err);
-                    });
-            }
-        });
-    </script>
 </body>
 </html>
