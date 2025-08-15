@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Great+Vibes&family=Teko:wght@700&family=Poppins:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* Main page styling */
+    /* Main page styling from the FIRST code block */
     html {
       scroll-behavior: smooth;
     }
@@ -72,8 +72,6 @@
     .custom-shape-divider-bottom .shape-fill {
       fill: #0a192f;
     }
-
-    /* Styles for the Form */
     .form-input {
       background-color: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.2);
@@ -98,17 +96,13 @@
       background: transparent;
     }
 
-    /* Final Card Styles */
+    /* --- NEW, CORRECT CARD STYLES FROM THE SECOND CODE BLOCK --- */
     .atm-card {
       position: relative;
       overflow: hidden;
       border-radius: 24px;
       aspect-ratio: 1.586;
-      box-shadow:
-        0 24px 60px rgba(0,0,0,.45),
-        0 0 38px rgba(168,85,247,.35),
-        0 0 62px rgba(56,189,248,.30),
-        0 0 88px rgba(34,197,94,.25);
+      box-shadow: 0 24px 60px rgba(0,0,0,.45), 0 0 38px rgba(168,85,247,.35), 0 0 62px rgba(56,189,248,.30), 0 0 88px rgba(34,197,94,.25);
       background: linear-gradient(135deg, #1f2d47 0%, #2a3d5f 25%, #344a70 50%, #2a3d5f 75%, #1f2d47 100%);
       border: 2px solid rgba(255,255,255,.12);
       isolation: isolate;
@@ -133,11 +127,12 @@
       opacity: .8;
     }
     .card-content {
-      position: relative; z-index: 5;
+      position: relative;
+      z-index: 5;
       height: 100%;
+      padding: clamp(16px, 4vw, 24px);
       display: grid;
       grid-template-rows: auto 1fr auto;
-      padding: clamp(16px, 4vw, 24px);
       grid-template-columns: 1fr auto;
       grid-template-areas:
         "top-left     top-right"
@@ -150,11 +145,13 @@
     .area-center       { grid-area: center; }
     .area-bottom-left  { grid-area: bottom-left; }
     .area-bottom-right { grid-area: bottom-right; }
-    .area-top-left { display: flex; align-items: center; }
+    
+    .area-top-left { display: flex; align-items: center; gap: 12px; }
     .area-top-right { text-align: right; }
     .area-center { display: flex; align-items: center; justify-content: center; text-align: center; }
     .area-bottom-left { display: flex; flex-direction: column; justify-content: flex-end; }
     .area-bottom-right { display: flex; align-items: flex-end; justify-content: flex-end; }
+
     .logo {
       width: clamp(50px, 12vw, 60px);
       height: clamp(50px, 12vw, 60px);
@@ -165,8 +162,8 @@
     .date-tag {
       font-family: 'Teko', sans-serif;
       font-size: clamp(20px, 3vw, 30px);
-      color: #f1f5f9;
-      text-shadow: 0 2px 3px rgba(0,0,0,.35);
+      color: #0f249b;
+      text-shadow: 0 0 5px #ffffff;
     }
     .greeting {
       font-family: 'Great Vibes', cursive;
@@ -181,8 +178,8 @@
       font-size: clamp(16px, 2.5vw, 20px);
       color: #fff;
       text-shadow: 0 0 10px rgba(255,255,255,.8);
-      margin-bottom: 5px;
     }
+    
     .holo {
       width: clamp(75px, 15vw, 90px);
       height: clamp(75px, 15vw, 90px);
@@ -191,38 +188,48 @@
       border: 2px solid rgba(255,255,255,0.5);
     }
     .holo-image { width: 100%; height: 100%; object-fit: cover; }
-    .college-name-text {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(10px, 2vw, 12px);
-      font-weight: 700;
-      color: #fcd34d;
-      text-shadow: 0 0 5px #fcd34d;
-      line-height: 1.3;
-      margin-bottom: 0.5rem;
+    
+    .college-name-top {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(9px, 2vw, 12px);
+        font-weight: 700;
+        color: #1a28c1;
+        text-shadow: 0 0 5px #ffffff;
+        line-height: 1.3;
+        margin-top: -10px;
     }
+
+/* --- FINAL, CORRECTED MEDIA QUERY FOR MOBILE --- */
     @media (max-width: 480px) {
       .card-content {
+        /* This gives a fixed space on the right for the photo, preventing text from going under it */
         grid-template-columns: 1fr 90px;
+        gap: 0 12px; /* Adjust gap for mobile */
       }
       .college-name-text {
-        font-size: 9px;
+        font-size: 9px; /* Make font smaller to fit */
       }
       .holder {
-        font-size: 14px;
+        font-size: 14px; /* Adjust user name size */
       }
       .greeting {
-        font-size: 28px;
+        font-size: 28px; /* Adjust greeting size */
+      }
+      .holo {
+        /* This moves the user image up */
+        position: relative;
+        bottom: 5px;
       }
     }
   </style>
 </head>
 <body class="text-slate-200">
-
-  <header class="sticky top-0 z-50 p-4 bg-slate-900/50 backdrop-blur-sm flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <h1 class="text-3xl md:text-4xl font-black glowing-title text-center">Celebrate Our Independence Day</h1>
-  
+  <header class="sticky top-0 z-50 py-4 text-center bg-slate-900/50 backdrop-blur-sm relative">
+    <h1 class="text-3xl md:text-4xl font-black glowing-title">Celebrate Our Independence Day</h1>
+   
   </header>
-  <section class="relative h-screen flex flex-col items-center justify-center text-white text-center p-4 overflow-hidden -mt-[88px] md:-mt-[72px]">
+
+  <section class="relative h-screen flex flex-col items-center justify-center text-white text-center p-4 overflow-hidden -mt-[88px]">
     <div id="landing-bg-image" class="absolute inset-0 z-0"></div>
     <div class="absolute inset-0 z-10 bg-black/60"></div>
     <div class="relative z-20">
@@ -241,53 +248,55 @@
 
   <div class="container mx-auto p-4 md:p-8">
     <main id="cardCreatorSection" class="grid grid-cols-1 lg:grid-cols-5 gap-8 pt-16">
-      <div class="lg:col-span-2 bg-slate-800/80 p-6 rounded-2xl shadow-lg">
-        <h2 class="text-2xl font-bold mb-6 text-white section-heading">Personalize Your Card</h2>
-        <div class="space-y-6">
-          <div>
-            <label for="nameOnCardInput" class="text-sm font-semibold mb-2 block text-slate-300">Your Name</label>
-            <input id="nameOnCardInput" type="text" placeholder="Enter your name" class="form-input w-full px-4 py-2 rounded-lg text-white">
-          </div>
-          <div>
-            <label for="userPhotoFile" class="text-sm font-semibold mb-2 block text-slate-300">Your Photo (Circular)</label>
-            <input id="userPhotoFile" type="file" accept="image/*" class="w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-amber-400 file:text-slate-900 hover:file:bg-amber-500 cursor-pointer">
-          </div>
-          <div class="pt-4">
-            <button id="downloadBtn" class="w-full font-bold text-lg px-4 py-3 rounded-lg bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 hover:scale-105 transition-transform">Download Card</button>
+        <div class="lg:col-span-2 bg-slate-800/80 p-6 rounded-2xl shadow-lg">
+          <h2 class="text-2xl font-bold mb-6 text-white section-heading">Personalize Your Card</h2>
+          <div class="space-y-6">
+            <div>
+              <label for="nameOnCardInput" class="text-sm font-semibold mb-2 block text-slate-300">Your Name</label>
+              <input id="nameOnCardInput" type="text" placeholder="Enter your name" class="form-input w-full px-4 py-2 rounded-lg text-white">
+            </div>
+            <div>
+              <label for="userPhotoFile" class="text-sm font-semibold mb-2 block text-slate-300">Your Photo (Circular)</label>
+              <input id="userPhotoFile" type="file" accept="image/*" class="w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-amber-400 file:text-slate-900 hover:file:bg-amber-500 cursor-pointer">
+            </div>
+            <div class="pt-4">
+              <button id="downloadBtn" class="w-full font-bold text-lg px-4 py-3 rounded-lg bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 hover:scale-105 transition-transform">Download Card</button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="lg:col-span-3 flex justify-center items-center">
-        <div id="exportWrap">
-          <div id="cardPreview" class="atm-card w-full">
-            <div class="shine"></div>
-            <svg class="tricolor-wave" viewBox="0 0 1200 750" preserveAspectRatio="none"><path d="M-50 180 C 250 40, 950 0, 1250 120 L 1250 220 C 950 100, 250 160, -50 300 Z" fill="#FF9933"/><path d="M-50 250 C 300 130, 900 160, 1250 240 L 1250 340 C 900 260, 300 300, -50 420 Z" fill="#ffffff"/><path d="M-50 330 C 300 220, 900 300, 1250 320 L 1250 420 C 900 400, 300 380, -50 500 Z" fill="#138808"/></svg>
-            <img class="chakra" alt="Ashoka Chakra" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><circle cx='256' cy='256' r='240' fill='none' stroke='%23002D62' stroke-width='16'/><circle cx='256' cy='256' r='14' fill='%23002D62'/><g stroke='%23002D62' stroke-width='10' stroke-linecap='round' fill='none' transform='translate(256 256)'><line x1='0' y1='-24' x2='0' y2='-220'/><g transform='rotate(15)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(30)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(45)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(60)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(75)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(90)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(105)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(120)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(135)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(150)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(165)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(180)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(195)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(210)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(225)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(240)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(255)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(270)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(285)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(300)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(315)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(330)'><line x1='0' y1='-24' x2='0' y2='-220'/></g><g transform='rotate(345)'><line x1='0' y1='-24' x2='0' y2='-220'/></g></g></svg>" />
-            <div class="card-content">
-              <div class="area-top-left">
-                <img id="collegeLogo" alt="College Logo" class="logo" src="logo.jpg" />
-              </div>
-              <div class="area-top-right">
-                <div class="date-tag">AUG-15</div>
-                <div class="date-tag opacity-90 -mt-1">79th</div>
-              </div>
-              <div class="area-center">
-                <div class="greeting">Happy Independence Day</div>
-              </div>
-              <div class="area-bottom-left">
-                <div class="college-name-text">SHREE VENKATESWARA GROUP OF INSTITUTIONS</div>
-                <div class="holder" id="nameOnCardPreview">YOUR NAME</div>
-              </div>
-              <div class="area-bottom-right">
-                <div class="holo">
-                  <img id="userPhotoPreview" alt="User Photo" class="holo-image" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='96' height='96'><rect width='100%' height='100%' fill='%23ffffff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='12' fill='%231f2937'>IMG</text></svg>">
+        <div class="lg:col-span-3 flex justify-center items-center">
+          <div id="exportWrap">
+            <div id="cardPreview" class="atm-card w-full">
+              <div class="shine"></div>
+              <svg class="tricolor-wave" viewBox="0 0 1200 750" preserveAspectRatio="none"><path d="M-50 180 C 250 40, 950 0, 1250 120 L 1250 220 C 950 100, 250 160, -50 300 Z" fill="#FF9933"/><path d="M-50 250 C 300 130, 900 160, 1250 240 L 1250 340 C 900 260, 300 300, -50 420 Z" fill="#ffffff"/><path d="M-50 330 C 300 220, 900 300, 1250 320 L 1250 420 C 900 400, 300 380, -50 500 Z" fill="#138808"/></svg>
+           
+              <div class="card-content">
+                <div class="area-top-left">
+                  <img id="collegeLogo" alt="College Logo" class="logo" src="logo.jpg" />
+                  <div class="college-name-top">
+                    SHREE VENKATESWARA<br>GROUP OF INSTITUTIONS
+                  </div>
+                </div>
+                <div class="area-top-right">
+                  <div class="date-tag">AUG-15</div>
+                  <div class="date-tag opacity-90 -mt-1">79th</div>
+                </div>
+                <div class="area-center">
+                  <div class="greeting">Happy Independence Day</div>
+                </div>
+                <div class="area-bottom-left">
+                  <div class="holder" id="nameOnCardPreview">YOUR NAME</div>
+                </div>
+                <div class="area-bottom-right">
+                  <div class="holo">
+                    <img id="userPhotoPreview" alt="User Photo" class="holo-image" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='96' height='96'><rect width='100%' height='100%' fill='%23ffffff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='12' fill='%231f2937'>IMG</text></svg>">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </main>
 
     <section class="mt-20">
